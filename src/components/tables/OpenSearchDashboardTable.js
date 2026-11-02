@@ -38,7 +38,7 @@ function OpenSearchDashboardTable() {
     fetchingDashboards, dashboards, errorDashboards,
   } = useSelector((store) => store.openSearchReports);
 
-  const currentHostname = window.location.hostname;
+  const currentOrigin = window.location.origin;
   const openSearchBaseRootPath = process.env.OPENSEARCH_PROXY_ROOT ?? 'opensearch';
 
   useEffect(() => {
@@ -82,7 +82,7 @@ function OpenSearchDashboardTable() {
               </TableCell>
               <TableCell>
                 {' '}
-                {`https://${currentHostname}/${openSearchBaseRootPath}/${dashboard?.url}`}
+                {`${currentOrigin}/${openSearchBaseRootPath}/${dashboard?.url}`}
                 {' '}
               </TableCell>
               <TableCell>
